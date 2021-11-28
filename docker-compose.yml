@@ -1,0 +1,13 @@
+version: "3"
+services:
+  maindb:
+    container_name: "maindb"
+    build: ./build/docker/db/
+    environment:
+      MYSQL_USER: "db_user"
+      MYSQL_PASSWORD: "db_pass"
+      MYSQL_ROOT_PASSWORD: "db_pass"
+      MYSQL_DATABASE: "maindb"
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    ports:
+      - "3307:3306"
